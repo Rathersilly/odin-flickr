@@ -1,0 +1,20 @@
+<h3>Enter a Flickr username or user id:</h3>
+<%= form_with url: root_url, method: :get do |form| %>
+  <%= form.label "Flickr username: " %>
+  <%= form.text_field :flickr_name %>
+  <%= form.label "Flickr id: " %>
+  <%= form.text_field :flickr_id %>
+  <%= form.submit %>
+<% end %>
+<%= params.inspect %>
+<% if @list %>
+  <%= image_tag Flickr.url(@list[0]) %>
+<% end %>
+<% if @pics %>
+  <% @pics.each do |pic| %>
+    <%= image_tag Flickr.url(pic) %>
+  <% end %>
+<% end %>
+
+
+
